@@ -1,0 +1,427 @@
+{% extends "base.html" %}
+
+{% block title %}Vendor Portal - Instoredealz{% endblock %}
+
+{% block body_class %}vendor-page{% endblock %}
+
+{% block nav_actions %}
+<a href="#" class="btn btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#vendorLoginModal">Vendor Login</a>
+<a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#vendorSignupModal">Join as Vendor</a>
+{% endblock %}
+
+{% block content %}
+<!-- Vendor Hero Section -->
+<section class="vendor-hero bg-gradient-success text-white">
+    <div class="container">
+        <div class="row align-items-center min-vh-100 py-5">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">
+                    Grow Your Business with <span class="text-warning">Instoredealz</span>
+                </h1>
+                <p class="lead mb-4">
+                    Reach thousands of customers, increase foot traffic, and boost sales with our powerful vendor platform. Create compelling deals and watch your business grow.
+                </p>
+                <div class="d-flex gap-3 mb-4">
+                    <a href="#signup" class="btn btn-warning btn-lg px-4">
+                        <i class="fas fa-store me-2"></i>Start Selling
+                    </a>
+                    <a href="#dashboard" class="btn btn-outline-light btn-lg px-4">
+                        View Dashboard
+                    </a>
+                </div>
+                <div class="vendor-stats d-flex gap-4 mt-4">
+                    <div class="stat-item">
+                        <h4 class="fw-bold">1000+</h4>
+                        <small>Active Vendors</small>
+                    </div>
+                    <div class="stat-item">
+                        <h4 class="fw-bold">50K+</h4>
+                        <small>Monthly Customers</small>
+                    </div>
+                    <div class="stat-item">
+                        <h4 class="fw-bold">₹2L+</h4>
+                        <small>Avg Monthly Sales</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="vendor-image text-center">
+                    <img src="https://pixabay.com/get/g366e37621287addbebcc4d6e3f73d810ace53db6a1c08d35f9d8dbfe188cdd3cf2f57ab7ffe1d4c7891cf851e6be838de15a3f9ff367cb665f375e056489ad48_1280.jpg" 
+                         alt="Store Owner" class="img-fluid rounded-3 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vendor Signup Form -->
+<section id="signup" class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-success text-white text-center py-4">
+                        <h3 class="fw-bold mb-0">Join Our Vendor Network</h3>
+                        <p class="mb-0">Start reaching more customers today</p>
+                    </div>
+                    <div class="card-body p-5">
+                        <form id="vendorSignupForm" class="row g-3">
+                            <div class="col-md-6">
+                                <label for="businessName" class="form-label">Business Name *</label>
+                                <input type="text" class="form-control" id="businessName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="ownerName" class="form-label">Owner Name *</label>
+                                <input type="text" class="form-control" id="ownerName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="businessEmail" class="form-label">Business Email *</label>
+                                <input type="email" class="form-control" id="businessEmail" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="businessPhone" class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="businessPhone" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="businessAddress" class="form-label">Business Address *</label>
+                                <textarea class="form-control" id="businessAddress" rows="3" required></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="businessCategory" class="form-label">Business Category *</label>
+                                <select class="form-select" id="businessCategory" required>
+                                    <option value="">Select Category</option>
+                                    <option value="fashion">Fashion & Apparel</option>
+                                    <option value="food">Food & Dining</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="beauty">Health & Beauty</option>
+                                    <option value="home">Home & Garden</option>
+                                    <option value="sports">Sports & Fitness</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="gstNumber" class="form-label">GST Number</label>
+                                <input type="text" class="form-control" id="gstNumber" placeholder="Optional">
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="vendorTerms" required>
+                                    <label class="form-check-label" for="vendorTerms">
+                                        I agree to the <a href="#" class="text-success">Vendor Terms & Conditions</a> and <a href="#" class="text-success">Privacy Policy</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-success btn-lg px-5">
+                                    <i class="fas fa-rocket me-2"></i>Submit Application
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Deal Submission Form -->
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Create Your First Deal</h2>
+            <p class="text-muted">Attract more customers with irresistible offers</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow border-0">
+                    <div class="card-body p-4">
+                        <form id="dealSubmissionForm" class="row g-3">
+                            <div class="col-12">
+                                <label for="dealTitle" class="form-label">Deal Title *</label>
+                                <input type="text" class="form-control" id="dealTitle" placeholder="e.g., 50% Off on All Summer Collection" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="discountType" class="form-label">Discount Type *</label>
+                                <select class="form-select" id="discountType" required>
+                                    <option value="">Select Type</option>
+                                    <option value="percentage">Percentage Off</option>
+                                    <option value="fixed">Fixed Amount Off</option>
+                                    <option value="bogo">Buy One Get One</option>
+                                    <option value="combo">Combo Deal</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="discountValue" class="form-label">Discount Value *</label>
+                                <input type="number" class="form-control" id="discountValue" placeholder="e.g., 50" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="dealDescription" class="form-label">Deal Description *</label>
+                                <textarea class="form-control" id="dealDescription" rows="3" placeholder="Describe your amazing offer..." required></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="dealCategory" class="form-label">Category *</label>
+                                <select class="form-select" id="dealCategory" required>
+                                    <option value="">Select Category</option>
+                                    <option value="fashion">Fashion & Apparel</option>
+                                    <option value="food">Food & Dining</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="beauty">Health & Beauty</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validTill" class="form-label">Valid Till *</label>
+                                <input type="date" class="form-control" id="validTill" required>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg px-5">
+                                    <i class="fas fa-plus me-2"></i>Create Deal
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Performance Dashboard -->
+<section id="dashboard" class="py-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <div>
+                <h2 class="fw-bold">Vendor Dashboard</h2>
+                <p class="text-muted mb-0">Track your performance and grow your business</p>
+            </div>
+            <div class="dashboard-actions">
+                <button class="btn btn-outline-success me-2">
+                    <i class="fas fa-download me-2"></i>Export Data
+                </button>
+                <button class="btn btn-success">
+                    <i class="fas fa-plus me-2"></i>New Deal
+                </button>
+            </div>
+        </div>
+        
+        <!-- Stats Overview -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card bg-white rounded-3 p-4 shadow-sm text-center">
+                    <div class="stats-icon mb-3">
+                        <i class="fas fa-eye fa-2x text-primary"></i>
+                    </div>
+                    <h3 class="fw-bold text-primary">0</h3>
+                    <p class="text-muted mb-0">Total Views</p>
+                    <small class="text-success">+0% this month</small>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card bg-white rounded-3 p-4 shadow-sm text-center">
+                    <div class="stats-icon mb-3">
+                        <i class="fas fa-ticket-alt fa-2x text-success"></i>
+                    </div>
+                    <h3 class="fw-bold text-success">0</h3>
+                    <p class="text-muted mb-0">Redemptions</p>
+                    <small class="text-success">+0% this month</small>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card bg-white rounded-3 p-4 shadow-sm text-center">
+                    <div class="stats-icon mb-3">
+                        <i class="fas fa-star fa-2x text-warning"></i>
+                    </div>
+                    <h3 class="fw-bold text-warning">0.0</h3>
+                    <p class="text-muted mb-0">Avg Rating</p>
+                    <small class="text-muted">0 reviews</small>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card bg-white rounded-3 p-4 shadow-sm text-center">
+                    <div class="stats-icon mb-3">
+                        <i class="fas fa-rupee-sign fa-2x text-info"></i>
+                    </div>
+                    <h3 class="fw-bold text-info">₹0</h3>
+                    <p class="text-muted mb-0">Revenue</p>
+                    <small class="text-success">+0% this month</small>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recent Activity -->
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-white py-3">
+                        <h5 class="fw-bold mb-0">Recent Deals Performance</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="empty-state text-center py-5">
+                            <i class="fas fa-chart-line fa-3x text-muted mb-3"></i>
+                            <h6 class="text-muted">No deals created yet</h6>
+                            <p class="text-muted small">Create your first deal to see performance analytics</p>
+                            <button class="btn btn-primary">Create Deal</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-white py-3">
+                        <h5 class="fw-bold mb-0">Recent Reviews</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="empty-state text-center py-4">
+                            <i class="fas fa-comments fa-3x text-muted mb-3"></i>
+                            <h6 class="text-muted">No reviews yet</h6>
+                            <p class="text-muted small">Customer reviews will appear here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Store Settings -->
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Store Settings</h2>
+            <p class="text-muted">Manage your store information and preferences</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow border-0">
+                    <div class="card-body p-4">
+                        <form id="storeSettingsForm" class="row g-3">
+                            <div class="col-12">
+                                <label for="storeName" class="form-label">Store Name</label>
+                                <input type="text" class="form-control" id="storeName" placeholder="Your store name">
+                            </div>
+                            <div class="col-12">
+                                <label for="storeDescription" class="form-label">Store Description</label>
+                                <textarea class="form-control" id="storeDescription" rows="3" placeholder="Tell customers about your store..."></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="storeHours" class="form-label">Store Hours</label>
+                                <input type="text" class="form-control" id="storeHours" placeholder="e.g., 9 AM - 9 PM">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="storeContact" class="form-label">Contact Number</label>
+                                <input type="tel" class="form-control" id="storeContact" placeholder="Your contact number">
+                            </div>
+                            <div class="col-12">
+                                <label for="storeLocation" class="form-label">Store Location</label>
+                                <input type="text" class="form-control" id="storeLocation" placeholder="Complete address">
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-success btn-lg px-5">
+                                    <i class="fas fa-save me-2"></i>Save Settings
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<!-- Vendor Login Modal -->
+<div class="modal fade" id="vendorLoginModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Vendor Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="vendorLoginForm">
+                    <div class="mb-3">
+                        <label for="vendorEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="vendorEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="vendorPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="vendorPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Vendor Signup Modal -->
+<div class="modal fade" id="vendorSignupModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Quick Vendor Signup</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="quickVendorSignup">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="quickBusinessName" class="form-label">Business Name</label>
+                            <input type="text" class="form-control" id="quickBusinessName" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="quickOwnerName" class="form-label">Owner Name</label>
+                            <input type="text" class="form-control" id="quickOwnerName" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="quickEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="quickEmail" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="quickPhone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="quickPhone" required>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-success w-100">Join Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Vendor page specific JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Form submissions
+    document.getElementById('vendorSignupForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Vendor application submitted successfully! We will review and get back to you within 24 hours.');
+    });
+    
+    document.getElementById('dealSubmissionForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Deal created successfully! It will be reviewed and published within 2 hours.');
+    });
+    
+    document.getElementById('storeSettingsForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Store settings saved successfully!');
+    });
+    
+    // Set minimum date for deal validity
+    const validTillInput = document.getElementById('validTill');
+    if (validTillInput) {
+        const today = new Date().toISOString().split('T')[0];
+        validTillInput.min = today;
+    }
+});
+</script>
+{% endblock %}

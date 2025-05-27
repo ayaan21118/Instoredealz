@@ -1,0 +1,444 @@
+{% extends "base.html" %}
+
+{% block title %}Pricing Plans - Instoredealz{% endblock %}
+
+{% block body_class %}pricing-page{% endblock %}
+
+{% block content %}
+<!-- Pricing Hero -->
+<section class="pricing-hero bg-gradient-primary text-white py-5">
+    <div class="container">
+        <div class="text-center py-5">
+            <h1 class="display-4 fw-bold mb-4">Choose Your Perfect Plan</h1>
+            <p class="lead mb-4">Unlock amazing savings with our flexible membership options</p>
+            <div class="pricing-toggle d-flex justify-content-center align-items-center gap-3 mb-4">
+                <span>Monthly</span>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="pricingToggle" checked>
+                </div>
+                <span>Annual <span class="badge bg-warning">Save 20%</span></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Plans -->
+<section class="pricing-plans py-5">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+            <!-- Basic Plan -->
+            <div class="col-lg-4 col-md-6">
+                <div class="pricing-card card border-0 shadow h-100">
+                    <div class="card-header bg-light text-center py-4">
+                        <h4 class="fw-bold text-primary">Basic</h4>
+                        <p class="text-muted mb-0">Perfect for casual shoppers</p>
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <div class="pricing-amount mb-4">
+                            <h1 class="display-4 fw-bold text-primary">
+                                <span class="currency">₹</span>
+                                <span class="amount">0</span>
+                            </h1>
+                            <p class="text-muted">
+                                <span class="period">Forever Free</span>
+                            </p>
+                        </div>
+                        
+                        <ul class="list-unstyled pricing-features mb-4">
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                Basic deal access
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                5 deals per day
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                Standard support
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-times text-muted me-2"></i>
+                                Priority notifications
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-times text-muted me-2"></i>
+                                Advanced filters
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-times text-muted me-2"></i>
+                                Exclusive deals
+                            </li>
+                        </ul>
+                        
+                        <button class="btn btn-outline-primary btn-lg w-100">
+                            Get Started Free
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Premium Plan -->
+            <div class="col-lg-4 col-md-6">
+                <div class="pricing-card card border-primary shadow-lg h-100 position-relative">
+                    <div class="popular-badge">
+                        <span class="badge bg-primary">Most Popular</span>
+                    </div>
+                    <div class="card-header bg-primary text-white text-center py-4">
+                        <h4 class="fw-bold">Premium</h4>
+                        <p class="mb-0 opacity-75">For smart savers</p>
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <div class="pricing-amount mb-4">
+                            <h1 class="display-4 fw-bold text-primary">
+                                <span class="currency">₹</span>
+                                <span class="amount" data-annual="5999" data-monthly="599">5,999</span>
+                            </h1>
+                            <p class="text-muted">
+                                <span class="period">per year</span>
+                            </p>
+                        </div>
+                        
+                        <ul class="list-unstyled pricing-features mb-4">
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                All Basic features
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                Unlimited deals
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                Priority notifications
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                Advanced filters
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                Priority support
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-times text-muted me-2"></i>
+                                Exclusive deals
+                            </li>
+                        </ul>
+                        
+                        <button class="btn btn-primary btn-lg w-100">
+                            Choose Premium
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ultimate Plan -->
+            <div class="col-lg-4 col-md-6">
+                <div class="pricing-card card border-warning shadow h-100">
+                    <div class="card-header bg-warning text-dark text-center py-4">
+                        <h4 class="fw-bold">Ultimate</h4>
+                        <p class="mb-0">For deal hunters</p>
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <div class="pricing-amount mb-4">
+                            <h1 class="display-4 fw-bold text-warning">
+                                <span class="currency">₹</span>
+                                <span class="amount" data-annual="9999" data-monthly="999">9,999</span>
+                            </h1>
+                            <p class="text-muted">
+                                <span class="period">per year</span>
+                            </p>
+                        </div>
+                        
+                        <ul class="list-unstyled pricing-features mb-4">
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                All Premium features
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                Exclusive VIP deals
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                Personal deal concierge
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                Early access to sales
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                24/7 premium support
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                Custom deal alerts
+                            </li>
+                        </ul>
+                        
+                        <button class="btn btn-warning btn-lg w-100">
+                            Go Ultimate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Feature Comparison -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Compare All Features</h2>
+            <p class="text-muted">See what's included in each plan</p>
+        </div>
+        
+        <div class="table-responsive">
+            <table class="table table-bordered bg-white">
+                <thead class="table-primary">
+                    <tr>
+                        <th class="fw-bold">Features</th>
+                        <th class="text-center fw-bold">Basic</th>
+                        <th class="text-center fw-bold">Premium</th>
+                        <th class="text-center fw-bold">Ultimate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Daily Deal Limit</td>
+                        <td class="text-center">5 deals</td>
+                        <td class="text-center">Unlimited</td>
+                        <td class="text-center">Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td>Deal Categories</td>
+                        <td class="text-center">Basic categories</td>
+                        <td class="text-center">All categories</td>
+                        <td class="text-center">All + VIP categories</td>
+                    </tr>
+                    <tr>
+                        <td>Notifications</td>
+                        <td class="text-center">Standard</td>
+                        <td class="text-center">Priority</td>
+                        <td class="text-center">Custom alerts</td>
+                    </tr>
+                    <tr>
+                        <td>Search & Filters</td>
+                        <td class="text-center">Basic</td>
+                        <td class="text-center">Advanced</td>
+                        <td class="text-center">AI-powered</td>
+                    </tr>
+                    <tr>
+                        <td>Support</td>
+                        <td class="text-center">Email</td>
+                        <td class="text-center">Priority email</td>
+                        <td class="text-center">24/7 phone + chat</td>
+                    </tr>
+                    <tr>
+                        <td>Exclusive Deals</td>
+                        <td class="text-center"><i class="fas fa-times text-danger"></i></td>
+                        <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                        <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Personal Concierge</td>
+                        <td class="text-center"><i class="fas fa-times text-danger"></i></td>
+                        <td class="text-center"><i class="fas fa-times text-danger"></i></td>
+                        <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Frequently Asked Questions</h2>
+            <p class="text-muted">Everything you need to know about our pricing</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="pricingFAQ">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Can I change my plan anytime?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#pricingFAQ">
+                            <div class="accordion-body">
+                                Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and billing is prorated.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                What payment methods do you accept?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ">
+                            <div class="accordion-body">
+                                We accept all major credit cards, debit cards, UPI, net banking, and digital wallets for secure payments.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Is there a refund policy?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ">
+                            <div class="accordion-body">
+                                Yes, we offer a 30-day money-back guarantee for all paid plans. No questions asked!
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                Do you offer discounts for students or seniors?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ">
+                            <div class="accordion-body">
+                                Yes! We offer 50% student discounts and 30% senior citizen discounts. Contact support with valid ID for verification.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="bg-primary text-white py-5">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-3">Ready to Start Saving?</h2>
+        <p class="lead mb-4">Join thousands of smart shoppers and unlock amazing deals today!</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="#" class="btn btn-warning btn-lg px-5" data-bs-toggle="modal" data-bs-target="#signupModal">
+                Start Free Trial
+            </a>
+            <a href="{{ url_for('customer') }}" class="btn btn-outline-light btn-lg px-5">
+                Learn More
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+// Pricing page specific JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    const pricingToggle = document.getElementById('pricingToggle');
+    const amountElements = document.querySelectorAll('.amount');
+    const periodElements = document.querySelectorAll('.period');
+    
+    // Handle pricing toggle (Annual/Monthly)
+    pricingToggle.addEventListener('change', function() {
+        const isAnnual = this.checked;
+        
+        amountElements.forEach(amount => {
+            const annual = amount.getAttribute('data-annual');
+            const monthly = amount.getAttribute('data-monthly');
+            
+            if (annual && monthly) {
+                amount.textContent = isAnnual ? annual : monthly;
+            }
+        });
+        
+        periodElements.forEach(period => {
+            if (period.textContent.includes('per')) {
+                period.textContent = isAnnual ? 'per year' : 'per month';
+            }
+        });
+    });
+    
+    // Handle plan selection
+    const planButtons = document.querySelectorAll('.pricing-card .btn');
+    planButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const planName = this.closest('.pricing-card').querySelector('h4').textContent;
+            
+            if (planName === 'Basic') {
+                alert('Basic plan is free! Sign up to get started.');
+            } else {
+                alert(`You selected the ${planName} plan. Redirecting to payment...`);
+            }
+        });
+    });
+    
+    // Add animation to pricing cards on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.pricing-card').forEach(card => {
+        observer.observe(card);
+    });
+});
+
+// Add CSS animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .pricing-card {
+        opacity: 0;
+        transition: transform 0.3s ease;
+    }
+    
+    .pricing-card:hover {
+        transform: translateY(-10px);
+    }
+    
+    .popular-badge {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+    }
+    
+    .popular-badge .badge {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+`;
+document.head.appendChild(style);
+</script>
+{% endblock %}
