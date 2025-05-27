@@ -108,7 +108,7 @@ window.InstoredealsApp = {
         
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
-            if (href === currentPath || (currentPath === '/' && href === '/')) {
+            if (href && href !== '#' && (href === currentPath || (currentPath === '/' && href === '/'))) {
                 link.classList.add('active');
             } else {
                 link.classList.remove('active');

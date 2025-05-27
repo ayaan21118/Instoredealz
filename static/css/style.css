@@ -1296,24 +1296,91 @@ html {
 .vendor-benefits .benefit-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  opacity: 1 !important;
+  background: rgba(255, 255, 255, 0.98) !important;
 }
 
 .vendor-benefits .benefit-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+  opacity: 1 !important;
 }
 
 .benefit-icon {
   flex-shrink: 0;
 }
 
+/* Enhanced Vendor Section Visibility */
+.vendor-benefits, .how-it-works, .success-stories, .vendor-testimonials, .trending-deals, .popular-categories, .track-savings {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+}
+
 .how-it-works .step-card {
   position: relative;
+  opacity: 1 !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid rgba(0, 123, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.how-it-works .step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15) !important;
 }
 
 .step-icon {
   position: relative;
   transition: transform 0.3s ease;
+  opacity: 1 !important;
+}
+
+.success-stories .success-card {
+  opacity: 1 !important;
+  background: rgba(248, 249, 250, 0.98) !important;
+  border: 1px solid rgba(0, 123, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.success-stories .success-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Vendor Testimonials Enhancement */
+.vendor-testimonials {
+  background: linear-gradient(135deg, rgba(248, 249, 250, 0.98) 0%, rgba(255, 255, 255, 0.98) 100%) !important;
+}
+
+.vendor-testimonials .testimonial-card {
+  opacity: 1 !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid rgba(40, 167, 69, 0.1);
+  transition: all 0.3s ease;
+}
+
+.vendor-testimonials .testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(40, 167, 69, 0.15) !important;
+}
+
+/* General Section Text Visibility */
+.vendor-page h1, .vendor-page h2, .vendor-page h3, .vendor-page h4, .vendor-page h5, .vendor-page h6 {
+  opacity: 1 !important;
+  color: #212529 !important;
+  font-weight: 700 !important;
+}
+
+.vendor-page p, .vendor-page .text-muted {
+  opacity: 1 !important;
+  color: #6c757d !important;
+}
+
+.vendor-page .lead {
+  opacity: 1 !important;
+  color: #495057 !important;
+  font-weight: 500 !important;
 }
 
 .step-icon:hover {
