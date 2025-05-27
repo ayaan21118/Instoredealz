@@ -485,15 +485,86 @@ window.InstoredealsApp = {
         const animateElements = document.querySelectorAll('.card, .pricing-card, .stats-card, .category-card');
         animateElements.forEach(el => observer.observe(el));
 
-        // Add hover effects to cards
-        document.querySelectorAll('.category-card, .store-card, .stats-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
-                this.style.transition = 'transform 0.3s ease';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
+        // Enhanced hover effects for all card types
+        const cardSelectors = [
+            '.category-card', '.store-card', '.stats-card', '.pricing-card',
+            '.benefit-card', '.step-card', '.testimonial-card', '.success-card',
+            '.feature-card', '.dashboard-card', '.card'
+        ];
+        
+        cardSelectors.forEach(selector => {
+            document.querySelectorAll(selector).forEach(card => {
+                // Add enhanced hover animations
+                card.addEventListener('mouseenter', function() {
+                    if (!this.style.transform.includes('translateY')) {
+                        this.style.transform = 'translateY(-5px)';
+                    }
+                    this.style.transition = 'all 0.3s ease';
+                    
+                    // Add subtle glow effect
+                    this.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.15)';
+                    
+                    // Enhance icons and images inside cards
+                    const icons = this.querySelectorAll('i, .benefit-icon, .step-icon');
+                    icons.forEach(icon => {
+                        icon.style.transform = 'scale(1.1)';
+                        icon.style.transition = 'transform 0.3s ease';
+                    });
+                    
+                    // Enhance text contrast on hover
+                    const texts = this.querySelectorAll('.text-muted');
+                    texts.forEach(text => {
+                        text.style.color = '#495057';
+                    });
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '';
+                    
+                    // Reset icons and images
+                    const icons = this.querySelectorAll('i, .benefit-icon, .step-icon');
+                    icons.forEach(icon => {
+                        icon.style.transform = 'scale(1)';
+                    });
+                    
+                    // Reset text colors
+                    const texts = this.querySelectorAll('.text-muted');
+                    texts.forEach(text => {
+                        text.style.color = '';
+                    });
+                });
+                
+                // Add click ripple effect
+                card.addEventListener('click', function(e) {
+                    const ripple = document.createElement('div');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        background: rgba(0, 123, 255, 0.3);
+                        border-radius: 50%;
+                        transform: scale(0);
+                        animation: ripple 0.6s ease-out;
+                        pointer-events: none;
+                        z-index: 1;
+                    `;
+                    
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
             });
         });
     },
