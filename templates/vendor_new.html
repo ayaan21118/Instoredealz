@@ -13,35 +13,40 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#features">
-            <i class="fas fa-star me-1"></i>Features
-        </a>
-    </li>
-    <li class="nav-item">
         <a class="nav-link" href="#benefits">
-            <i class="fas fa-chart-line me-1"></i>Benefits
+            <i class="fas fa-star me-1"></i>Benefits
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#pricing">
-            <i class="fas fa-tag me-1"></i>Pricing
+        <a class="nav-link" href="#how-it-works">
+            <i class="fas fa-cogs me-1"></i>How It Works
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#testimonials">
+            <i class="fas fa-comments me-1"></i>What Vendors Say
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#success-stories">
+            <i class="fas fa-trophy me-1"></i>Success Stories
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#contact">
-            <i class="fas fa-envelope me-1"></i>Contact
+            <i class="fas fa-rocket me-1"></i>Get Started
         </a>
     </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-            <i class="fas fa-info-circle me-1"></i>Resources
+            <i class="fas fa-info-circle me-1"></i>More
         </a>
         <ul class="dropdown-menu shadow-lg">
-            <li><a class="dropdown-item" href="#success-stories"><i class="fas fa-trophy me-2"></i>Success Stories</a></li>
-            <li><a class="dropdown-item" href="#help"><i class="fas fa-question-circle me-2"></i>Help Center</a></li>
-            <li><a class="dropdown-item" href="#api-docs"><i class="fas fa-code me-2"></i>API Documentation</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pricing') }}"><i class="fas fa-tag me-2"></i>Pricing Plans</a></li>
+            <li><a class="dropdown-item" href="#contact"><i class="fas fa-envelope me-2"></i>Contact Us</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{ url_for('customer') }}"><i class="fas fa-home me-2"></i>Customer Portal</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('admin') }}"><i class="fas fa-shield-alt me-2"></i>Admin Portal</a></li>
         </ul>
     </li>
 </ul>
@@ -85,7 +90,7 @@
 </section>
 
 <!-- Vendor Benefits Section -->
-<section class="vendor-benefits py-5 bg-light">
+<section id="benefits" class="vendor-benefits py-5 bg-light">
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="fw-bold">Vendor Benefits</h2>
@@ -147,7 +152,7 @@
 </section>
 
 <!-- How It Works Section -->
-<section class="how-it-works py-5">
+<section id="how-it-works" class="how-it-works py-5">
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="fw-bold">How It Works</h2>
@@ -203,7 +208,7 @@
 </section>
 
 <!-- Testimonials Section -->
-<section class="testimonials py-5 bg-light">
+<section id="testimonials" class="testimonials py-5 bg-light">
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="fw-bold">What Existing Vendors Say</h2>
@@ -255,7 +260,7 @@
 </section>
 
 <!-- Success Stories Section -->
-<section class="success-stories py-5">
+<section id="success-stories" class="success-stories py-5">
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="fw-bold">Vendor Success Stories</h2>
