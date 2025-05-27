@@ -18,8 +18,8 @@ window.InstoredealsApp = {
                 e.preventDefault();
                 const targetId = e.target.getAttribute('href').substring(1);
                 
-                // Check if targetId is not empty before trying to select
-                if (targetId && targetId.length > 0) {
+                // Check if targetId is not empty and not just '#'
+                if (targetId && targetId.length > 0 && targetId !== '') {
                     const targetElement = document.getElementById(targetId);
                     if (targetElement) {
                         targetElement.scrollIntoView({
