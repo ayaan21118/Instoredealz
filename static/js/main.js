@@ -17,13 +17,16 @@ window.InstoredealsApp = {
             if (e.target.matches('a[href^="#"]')) {
                 e.preventDefault();
                 const targetId = e.target.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
                 
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                // Check if targetId is not empty before trying to select
+                if (targetId && targetId.length > 0) {
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
             }
         });
@@ -88,19 +91,29 @@ window.InstoredealsApp = {
         console.log('Charts initialization placeholder');
     },
 
-    // Handle navbar background on scroll
+    // Enhanced navbar scroll handling
     handleNavbarScroll: function() {
         const navbar = document.querySelector('.navbar');
         if (!navbar) return;
 
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
-            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.backdropFilter = 'blur(10px)';
         } else {
             navbar.classList.remove('scrolled');
-            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
         }
+        
+        // Add active page highlighting
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPath || (currentPath === '/' && href === '/')) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
     },
 
     // Handle window resize
