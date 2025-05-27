@@ -320,6 +320,72 @@ html {
   background: var(--gradient-primary);
 }
 
+/* Colorful Dashboard Enhancements */
+.dashboard-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem 0;
+  border-radius: 0 0 20px 20px;
+  margin-bottom: 2rem;
+}
+
+.admin-page .dashboard-header {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+}
+
+.vendor-page .dashboard-header {
+  background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+}
+
+.super-admin-page .dashboard-header {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.colorful-badge {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+.deal-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.deal-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  transition: all 0.6s;
+  opacity: 0;
+}
+
+.deal-card:hover::before {
+  animation: shimmer 1.5s ease-in-out;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
 .bg-gradient-success {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
 }
@@ -708,23 +774,68 @@ html {
   border: none;
   box-shadow: var(--shadow);
   transition: all 0.3s ease;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(59, 130, 246, 0.1);
 }
 
 .card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(59, 130, 246, 0.3);
 }
 
 .category-card {
-  background: var(--white);
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
   border: 2px solid transparent;
   transition: all 0.3s ease;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.category-card:hover::before {
+  left: 100%;
 }
 
 .category-card:hover {
   border-color: var(--primary);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2);
+  transform: translateY(-8px) scale(1.02);
+}
+
+.category-card:nth-child(1) {
+  border-left: 4px solid #ff6b6b;
+}
+
+.category-card:nth-child(2) {
+  border-left: 4px solid #4ecdc4;
+}
+
+.category-card:nth-child(3) {
+  border-left: 4px solid #45b7d1;
+}
+
+.category-card:nth-child(4) {
+  border-left: 4px solid #f9ca24;
+}
+
+.category-card:nth-child(5) {
+  border-left: 4px solid #6c5ce7;
+}
+
+.category-card:nth-child(6) {
+  border-left: 4px solid #fd79a8;
 }
 
 .store-card {
@@ -821,30 +932,53 @@ html {
 }
 
 .btn-primary {
-  background: var(--primary);
-  border-color: var(--primary);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
 .btn-primary:hover {
-  background: var(--primary-dark);
-  border-color: var(--primary-dark);
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
 }
 
 .btn-success {
-  background: var(--success);
-  border-color: var(--success);
+  background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+  border: none;
+  box-shadow: 0 4px 15px rgba(86, 171, 47, 0.4);
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #4e9c27 0%, #96d4b7 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(86, 171, 47, 0.6);
 }
 
 .btn-warning {
-  background: var(--warning);
-  border-color: var(--warning);
-  color: var(--dark);
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border: none;
+  color: white;
+  box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
+}
+
+.btn-warning:hover {
+  background: linear-gradient(135deg, #e681e9 0%, #e34560 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(240, 147, 251, 0.6);
+  color: white;
 }
 
 .btn-danger {
-  background: var(--danger);
-  border-color: var(--danger);
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #ff5252 0%, #dc4c49 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
 }
 
 .btn-lg {
@@ -1563,18 +1697,22 @@ html {
 /* Role-specific color schemes */
 .customer-page {
   --accent-color: var(--primary);
+  background: linear-gradient(135deg, #f8f9ff 0%, #e8f4ff 100%);
 }
 
 .vendor-page {
   --accent-color: var(--success);
+  background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
 }
 
 .admin-page {
   --accent-color: var(--primary);
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
 }
 
 .super-admin-page {
   --accent-color: var(--danger);
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
 }
 
 .pricing-page {
@@ -1706,8 +1844,36 @@ html {
 /* Stats Cards */
 .stats-card {
   transition: all 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: #fff;
+  border: none;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.stats-card:nth-child(2) {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  box-shadow: 0 10px 25px rgba(240, 147, 251, 0.3);
+}
+
+.stats-card:nth-child(3) {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  box-shadow: 0 10px 25px rgba(79, 172, 254, 0.3);
+}
+
+.stats-card:nth-child(4) {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  box-shadow: 0 10px 25px rgba(67, 233, 123, 0.3);
+}
+
+.stats-card:nth-child(5) {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  box-shadow: 0 10px 25px rgba(250, 112, 154, 0.3);
+}
+
+.stats-card:nth-child(6) {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  box-shadow: 0 10px 25px rgba(168, 237, 234, 0.3);
+  color: #333;
 }
 
 .stats-card:hover {
