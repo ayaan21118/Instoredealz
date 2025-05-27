@@ -4,6 +4,54 @@
 
 {% block body_class %}admin-page{% endblock %}
 
+{% block navbar_content %}
+<!-- Admin-specific Navbar -->
+<ul class="navbar-nav me-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('admin') }}">
+            <i class="fas fa-shield-alt me-1"></i>Admin Home
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#vendors">
+            <i class="fas fa-store me-1"></i>Vendors
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#deals">
+            <i class="fas fa-percent me-1"></i>Deals
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#support">
+            <i class="fas fa-headset me-1"></i>Support
+        </a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            <i class="fas fa-chart-bar me-1"></i>Analytics
+        </a>
+        <ul class="dropdown-menu shadow-lg">
+            <li><a class="dropdown-item" href="#reports"><i class="fas fa-file-alt me-2"></i>Reports</a></li>
+            <li><a class="dropdown-item" href="#metrics"><i class="fas fa-chart-line me-2"></i>Metrics</a></li>
+            <li><a class="dropdown-item" href="#revenue"><i class="fas fa-dollar-sign me-2"></i>Revenue</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{{ url_for('customer') }}"><i class="fas fa-home me-2"></i>Customer Portal</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            <i class="fas fa-cogs me-1"></i>Management
+        </a>
+        <ul class="dropdown-menu shadow-lg">
+            <li><a class="dropdown-item" href="#user-management"><i class="fas fa-users me-2"></i>User Management</a></li>
+            <li><a class="dropdown-item" href="#moderation"><i class="fas fa-gavel me-2"></i>Content Moderation</a></li>
+            <li><a class="dropdown-item" href="#settings"><i class="fas fa-sliders-h me-2"></i>System Settings</a></li>
+        </ul>
+    </li>
+</ul>
+{% endblock %}
+
 {% block nav_actions %}
 <a href="#" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#adminLoginModal">Admin Login</a>
 {% endblock %}
