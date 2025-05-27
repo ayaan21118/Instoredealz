@@ -32,19 +32,47 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('customer') }}">Home</a>
+                        <a class="nav-link" href="{{ url_for('customer') }}">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('pricing') }}">Pricing</a>
+                        <a class="nav-link" href="#deals">
+                            <i class="fas fa-percent me-1"></i>Deals
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#stores">
+                            <i class="fas fa-store me-1"></i>Stores
+                        </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                            Portals
+                            <i class="fas fa-tags me-1"></i>Categories
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ url_for('vendor') }}">Vendor Portal</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('admin') }}">Admin Portal</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('super_admin') }}">Super Admin</a></li>
+                        <ul class="dropdown-menu shadow-lg">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-utensils me-2"></i>Food & Dining</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-tshirt me-2"></i>Fashion</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-laptop me-2"></i>Electronics</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-heart me-2"></i>Health & Beauty</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-gamepad me-2"></i>Entertainment</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-th me-2"></i>View All Categories</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('pricing') }}">
+                            <i class="fas fa-crown me-1"></i>Pricing
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-cog me-1"></i>Portals
+                        </a>
+                        <ul class="dropdown-menu shadow-lg">
+                            <li><a class="dropdown-item" href="{{ url_for('vendor') }}"><i class="fas fa-store me-2"></i>Vendor Portal</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('admin') }}"><i class="fas fa-shield-alt me-2"></i>Admin Portal</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('super_admin') }}"><i class="fas fa-crown me-2"></i>Super Admin</a></li>
                         </ul>
                     </li>
                 </ul>
