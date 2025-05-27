@@ -170,10 +170,23 @@ window.InstoredealsApp = {
             vendorSignupForm.addEventListener('submit', this.handleVendorSignup);
         }
 
+        const vendorRegistrationForm = document.getElementById('vendorRegistrationForm');
+        if (vendorRegistrationForm) {
+            vendorRegistrationForm.addEventListener('submit', this.handleVendorRegistration);
+        }
+
+        const createDealForm = document.getElementById('createDealForm');
+        if (createDealForm) {
+            createDealForm.addEventListener('submit', this.handleCreateDeal);
+        }
+
         const dealSubmissionForm = document.getElementById('dealSubmissionForm');
         if (dealSubmissionForm) {
             dealSubmissionForm.addEventListener('submit', this.handleDealSubmission);
         }
+
+        // Setup file upload functionality
+        this.setupFileUploads();
 
         // Admin forms
         const adminLoginForm = document.getElementById('adminLoginForm');
@@ -282,6 +295,120 @@ window.InstoredealsApp = {
         }, 2000);
     },
 
+    // Handle vendor registration
+    handleVendorRegistration: function(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        
+        // Validate required fields
+        const requiredFields = ['businessName', 'ownerName', 'businessCategory', 'phoneNumber', 'emailAddress', 'createUserId', 'createPassword', 'storeAddress', 'city', 'panCardNumber', 'gstRegistration'];
+        
+        for (let field of requiredFields) {
+            if (!formData.get(field)) {
+                InstoredealsApp.showAlert(`Please fill in the ${field.replace(/([A-Z])/g, ' $1').toLowerCase()} field`, 'danger');
+                return;
+            }
+        }
+
+        // Check if terms are agreed
+        if (!formData.get('agreeTerms')) {
+            InstoredealsApp.showAlert('Please agree to the terms and conditions', 'danger');
+            return;
+        }
+
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Registering store...';
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('vendorRegistrationModal'));
+            if (modal) modal.hide();
+            
+            InstoredealsApp.showAlert('Partner store registration submitted successfully! Our team will verify your details and activate your account within 24-48 hours.', 'success');
+            
+            // Reset form
+            e.target.reset();
+        }, 2500);
+    },
+
+    // Handle create deal form
+    handleCreateDeal: function(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        
+        // Validate required fields
+        const requiredFields = ['dealTitle', 'dealDescription', 'dealCategory', 'discountCode', 'discountPercentage', 'dealAvailability', 'validFrom', 'validUntil', 'termsConditions'];
+        
+        for (let field of requiredFields) {
+            if (!formData.get(field)) {
+                InstoredealsApp.showAlert(`Please fill in the ${field.replace(/([A-Z])/g, ' $1').toLowerCase()} field`, 'danger');
+                return;
+            }
+        }
+
+        // Validate dates
+        const validFrom = new Date(formData.get('validFrom'));
+        const validUntil = new Date(formData.get('validUntil'));
+        const today = new Date();
+        
+        if (validFrom < today) {
+            InstoredealsApp.showAlert('Valid from date cannot be in the past', 'danger');
+            return;
+        }
+        
+        if (validUntil <= validFrom) {
+            InstoredealsApp.showAlert('Valid until date must be after valid from date', 'danger');
+            return;
+        }
+
+        // Check if terms are agreed
+        if (!formData.get('agreeDealTerms')) {
+            InstoredealsApp.showAlert('Please agree to the terms and conditions', 'danger');
+            return;
+        }
+
+        // Check if deal image is uploaded
+        const dealImage = document.getElementById('dealImage').files[0];
+        if (!dealImage) {
+            InstoredealsApp.showAlert('Please upload a deal image', 'danger');
+            return;
+        }
+
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Creating deal...';
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('createDealModal'));
+            if (modal) modal.hide();
+            
+            InstoredealsApp.showAlert('Deal created successfully! Your offer will be reviewed and published within 2-4 hours. Customers will be able to see your deal once approved.', 'success');
+            
+            // Reset form
+            e.target.reset();
+            // Reset file upload areas
+            document.querySelectorAll('.upload-area').forEach(area => {
+                area.classList.remove('file-selected');
+                const content = area.querySelector('.upload-content');
+                if (content.dataset.originalContent) {
+                    content.innerHTML = content.dataset.originalContent;
+                }
+            });
+        }, 2000);
+    },
+
     // Handle deal submission
     handleDealSubmission: function(e) {
         e.preventDefault();
@@ -369,6 +496,99 @@ window.InstoredealsApp = {
                 this.style.transform = 'translateY(0)';
             });
         });
+    },
+
+    // Setup file upload functionality
+    setupFileUploads: function() {
+        // Handle upload area clicks
+        document.querySelectorAll('.upload-area').forEach(area => {
+            const input = area.querySelector('input[type="file"]');
+            const content = area.querySelector('.upload-content');
+            
+            // Store original content
+            content.dataset.originalContent = content.innerHTML;
+            
+            // Click to upload
+            area.addEventListener('click', function(e) {
+                if (!e.target.closest('button')) {
+                    input.click();
+                }
+            });
+            
+            // Drag and drop
+            area.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.classList.add('dragover');
+            });
+            
+            area.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                this.classList.remove('dragover');
+            });
+            
+            area.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.classList.remove('dragover');
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    input.files = files;
+                    InstoredealsApp.handleFileSelect(input, area);
+                }
+            });
+            
+            // File input change
+            input.addEventListener('change', function() {
+                InstoredealsApp.handleFileSelect(this, area);
+            });
+        });
+    },
+
+    // Handle file selection
+    handleFileSelect: function(input, uploadArea) {
+        const file = input.files[0];
+        const content = uploadArea.querySelector('.upload-content');
+        
+        if (file) {
+            // Validate file type
+            const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/svg+xml'];
+            if (!allowedTypes.includes(file.type)) {
+                this.showAlert('Please select a valid image file (JPG, PNG, or SVG)', 'danger');
+                input.value = '';
+                return;
+            }
+            
+            // Validate file size (5MB max)
+            if (file.size > 5 * 1024 * 1024) {
+                this.showAlert('File size must be less than 5MB', 'danger');
+                input.value = '';
+                return;
+            }
+            
+            // Update upload area appearance
+            uploadArea.classList.add('file-selected');
+            content.innerHTML = `
+                <i class="fas fa-check-circle fa-2x text-success mb-2"></i>
+                <p class="mb-1 fw-bold">${file.name}</p>
+                <small class="text-muted">${(file.size / 1024 / 1024).toFixed(2)} MB</small>
+                <div class="mt-2">
+                    <button type="button" class="btn btn-outline-danger btn-sm" onclick="InstoredealsApp.removeFile('${input.id}')">
+                        <i class="fas fa-trash me-1"></i>Remove
+                    </button>
+                </div>
+            `;
+        }
+    },
+
+    // Remove selected file
+    removeFile: function(inputId) {
+        const input = document.getElementById(inputId);
+        const uploadArea = input.closest('.upload-area');
+        const content = uploadArea.querySelector('.upload-content');
+        
+        input.value = '';
+        uploadArea.classList.remove('file-selected');
+        content.innerHTML = content.dataset.originalContent;
     },
 
     // Setup utility functions

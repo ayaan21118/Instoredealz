@@ -21,10 +21,12 @@
                     Join our vendor network and reach high-intent customers. Increase sales with zero commission fees.
                 </p>
                 <div class="d-flex gap-3 mb-4">
-                    <a href="#contact" class="btn btn-warning btn-lg px-4">
-                        Become a Vendor
+                    <a href="#" class="btn btn-warning btn-lg px-4" data-bs-toggle="modal" data-bs-target="#vendorRegistrationModal">
+                        <i class="fas fa-store me-2"></i>Join as a Partner Store
                     </a>
-                    <input type="text" class="form-control" placeholder="Enter your email" style="max-width: 250px;">
+                    <a href="#" class="btn btn-outline-light btn-lg px-4" data-bs-toggle="modal" data-bs-target="#createDealModal">
+                        <i class="fas fa-plus me-2"></i>Create New Deal
+                    </a>
                 </div>
                 <div class="d-flex align-items-center text-white-50">
                     <i class="fas fa-chart-line me-2"></i>
@@ -341,3 +343,251 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 {% endblock %}
+
+<!-- Vendor Registration Modal -->
+<div class="modal fade" id="vendorRegistrationModal" tabindex="-1" aria-labelledby="vendorRegistrationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold text-center w-100" id="vendorRegistrationModalLabel">Join as a Partner Store</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body px-5 py-4">
+                <p class="text-muted text-center mb-4">Start attracting more customers with exclusive deals</p>
+                
+                <form id="vendorRegistrationForm" class="needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="businessName" class="form-label">Business/Store Name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="businessName" name="businessName" placeholder="Your Business Name" required>
+                            <div class="invalid-feedback">Please provide your business name.</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="ownerName" class="form-label">Owner's Full Name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="ownerName" name="ownerName" placeholder="Owner's Complete Name" required>
+                            <div class="invalid-feedback">Please provide the owner's name.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="businessCategory" class="form-label">Business Category <span class="text-danger">*</span></label>
+                            <select class="form-select" id="businessCategory" name="businessCategory" required>
+                                <option value="">Select category</option>
+                                <option value="restaurant">Restaurant</option>
+                                <option value="retail">Retail</option>
+                                <option value="beauty">Beauty & Wellness</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="grocery">Grocery</option>
+                                <option value="fitness">Fitness</option>
+                                <option value="automotive">Automotive</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="invalid-feedback">Please select a business category.</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="phoneNumber" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                            <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="+971 (0) 55 123 4567" required>
+                            <div class="invalid-feedback">Please provide a valid phone number.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="emailAddress" class="form-label">Email Address <span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="name@example.com" required>
+                        <div class="invalid-feedback">Please provide a valid email address.</div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="createUserId" class="form-label">Create User ID <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="createUserId" name="createUserId" placeholder="Enter unique user ID" required>
+                            <div class="invalid-feedback">Please create a user ID.</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="createPassword" class="form-label">Create Password <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control" id="createPassword" name="createPassword" placeholder="Enter secure password" required>
+                            <div class="invalid-feedback">Please create a password.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="businessLogo" class="form-label">Upload Business Logo</label>
+                        <div class="upload-area border rounded p-4 text-center">
+                            <input type="file" class="form-control d-none" id="businessLogo" name="businessLogo" accept="image/*">
+                            <div class="upload-content">
+                                <i class="fas fa-cloud-upload-alt fa-2x text-muted mb-2"></i>
+                                <p class="mb-1">Click to upload business logo</p>
+                                <small class="text-muted">PNG, JPG or SVG</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="storeAddress" class="form-label">Store Address <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="storeAddress" name="storeAddress" rows="3" placeholder="Complete store address with location" required></textarea>
+                        <div class="invalid-feedback">Please provide the store address.</div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="city" class="form-label">City <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="city" name="city" placeholder="Dubai" required>
+                            <div class="invalid-feedback">Please provide the city.</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="panCardNumber" class="form-label">PAN Card Number <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="panCardNumber" name="panCardNumber" placeholder="ABCDE1234F" required>
+                            <div class="invalid-feedback">Please provide PAN card number.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="gstRegistration" class="form-label">Do you have GST Registration? <span class="text-danger">*</span></label>
+                        <select class="form-select" id="gstRegistration" name="gstRegistration" required>
+                            <option value="">Select option</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                        <div class="invalid-feedback">Please select GST registration status.</div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                            <label class="form-check-label" for="agreeTerms">
+                                I agree to Instoredealz <a href="#" class="text-decoration-none">Terms and Conditions</a>
+                            </label>
+                            <div class="invalid-feedback">You must agree to the terms and conditions.</div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success w-100 py-3 fw-bold">
+                        <i class="fas fa-store me-2"></i>Register as Partner Store
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Create New Deal Modal -->
+<div class="modal fade" id="createDealModal" tabindex="-1" aria-labelledby="createDealModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold text-center w-100" id="createDealModalLabel">Create New Deal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body px-5 py-4">
+                <p class="text-muted text-center mb-4">Submit attractive offers to draw customers to your store</p>
+                
+                <form id="createDealForm" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="dealTitle" class="form-label">Deal Title <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="dealTitle" name="dealTitle" placeholder="e.g., 30% OFF on All Electronics" required>
+                        <div class="invalid-feedback">Please provide a deal title.</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="dealDescription" class="form-label">Deal Description <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="dealDescription" name="dealDescription" rows="3" placeholder="Describe your offer in detail" required></textarea>
+                        <div class="invalid-feedback">Please provide a deal description.</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="dealCategory" class="form-label">Category <span class="text-danger">*</span></label>
+                        <select class="form-select" id="dealCategory" name="dealCategory" required>
+                            <option value="">Select deal category</option>
+                            <option value="food">Food & Dining</option>
+                            <option value="fashion">Fashion & Apparel</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="beauty">Beauty & Wellness</option>
+                            <option value="home">Home & Garden</option>
+                            <option value="sports">Sports & Fitness</option>
+                            <option value="travel">Travel & Tourism</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a category.</div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="discountCode" class="form-label">Discount Code <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="discountCode" name="discountCode" placeholder="e.g., SAVE30, WELCOME" required>
+                            <div class="invalid-feedback">Please provide a discount code.</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="discountPercentage" class="form-label">Discount Percentage <span class="text-danger">*</span></label>
+                            <input type="number" class="form-control" id="discountPercentage" name="discountPercentage" min="1" max="100" placeholder="30" required>
+                            <div class="invalid-feedback">Please provide a valid discount percentage (1-100).</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="dealAvailability" class="form-label">Deal Availability <span class="text-danger">*</span></label>
+                        <select class="form-select" id="dealAvailability" name="dealAvailability" required>
+                            <option value="">Select availability</option>
+                            <option value="all-stores">All Stores</option>
+                            <option value="specific-store">Specific Store</option>
+                            <option value="online-only">Online Only</option>
+                        </select>
+                        <div class="invalid-feedback">Please select deal availability.</div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="dealImage" class="form-label">Upload Deal Image <span class="text-danger">*</span></label>
+                        <div class="upload-area border rounded p-4 text-center">
+                            <input type="file" class="form-control d-none" id="dealImage" name="dealImage" accept="image/*" required>
+                            <div class="upload-content">
+                                <i class="fas fa-image fa-2x text-muted mb-2"></i>
+                                <div class="upload-options d-flex justify-content-center gap-3 mb-2">
+                                    <button type="button" class="btn btn-outline-primary btn-sm" onclick="document.getElementById('dealImage').click()">
+                                        <i class="fas fa-upload me-1"></i>Upload from Gallery
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary btn-sm">
+                                        <i class="fas fa-camera me-1"></i>Take Photo
+                                    </button>
+                                </div>
+                                <small class="text-muted">PNG, JPG or SVG</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validFrom" class="form-label">Valid From <span class="text-danger">*</span></label>
+                            <input type="date" class="form-control" id="validFrom" name="validFrom" required>
+                            <div class="invalid-feedback">Please select a valid from date.</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validUntil" class="form-label">Valid Until <span class="text-danger">*</span></label>
+                            <input type="date" class="form-control" id="validUntil" name="validUntil" required>
+                            <div class="invalid-feedback">Please select a valid until date.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="termsConditions" class="form-label">Terms & Conditions <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="termsConditions" name="termsConditions" rows="3" placeholder="Any specific terms or conditions for this deal" required></textarea>
+                        <div class="invalid-feedback">Please provide terms and conditions.</div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="agreeDealTerms" name="agreeDealTerms" required>
+                            <label class="form-check-label" for="agreeDealTerms">
+                                I agree to Instoredealz <a href="#" class="text-decoration-none">Terms and Conditions</a>
+                            </label>
+                            <div class="invalid-feedback">You must agree to the terms and conditions.</div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-100 py-3 fw-bold">
+                        <i class="fas fa-plus me-2"></i>Submit Deal for Approval
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
