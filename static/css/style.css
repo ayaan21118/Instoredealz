@@ -721,6 +721,135 @@ html {
   transition: opacity 0.8s ease-in-out;
 }
 
+/* New Vendor Page Styles */
+.vendor-hero {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.vendor-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.vendor-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.vendor-benefits .benefit-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.vendor-benefits .benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.benefit-icon {
+  flex-shrink: 0;
+}
+
+.how-it-works .step-card {
+  position: relative;
+}
+
+.step-icon {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.step-icon:hover {
+  transform: scale(1.1);
+}
+
+.step-number {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #fff;
+  color: #333;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.testimonials .testimonial-card {
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.testimonials .testimonial-card:hover {
+  transform: translateY(-3px);
+}
+
+.success-stories .success-card {
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.success-stories .success-card:hover {
+  transform: translateY(-3px);
+}
+
+.contact-section .card {
+  border-radius: 15px;
+}
+
+.contact-section .form-control {
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+  padding: 12px 15px;
+  transition: border-color 0.3s ease;
+}
+
+.contact-section .form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.contact-section .btn-success {
+  border-radius: 8px;
+  padding: 12px 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.contact-section .btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .vendor-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .step-icon {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  
+  .step-icon i {
+    font-size: 1.5rem !important;
+  }
+}
+
 /* Social Links */
 .social-links a {
   display: inline-block;
