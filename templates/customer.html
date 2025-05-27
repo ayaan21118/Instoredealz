@@ -5,44 +5,210 @@
 {% block body_class %}customer-page{% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
-<section class="hero-section bg-gradient-primary text-white">
-    <div class="container">
-        <div class="row align-items-center min-vh-100 py-5">
-            <div class="col-lg-6">
-                <h1 class="display-4 fw-bold mb-4">
-                    Discover Amazing <span class="text-warning">Deals</span> Near You
-                </h1>
-                <p class="lead mb-4">
-                    Get instant access to exclusive in-store discounts and save up to 70% on your favorite brands. Join millions of smart shoppers today!
-                </p>
-                <div class="d-flex gap-3 mb-4">
-                    <a href="{{ url_for('pricing') }}" class="btn btn-warning btn-lg px-4">
-                        <i class="fas fa-crown me-2"></i>Get Premium
-                    </a>
-                    <a href="#deals" class="btn btn-outline-light btn-lg px-4">
-                        Browse Deals
-                    </a>
-                </div>
-                <div class="d-flex align-items-center">
-                    <div class="rating-stars text-warning me-3">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+<!-- Hero Banner Carousel -->
+<section id="heroBannerCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="4000">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroBannerCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroBannerCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroBannerCarousel" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#heroBannerCarousel" data-bs-slide-to="3"></button>
+        <button type="button" data-bs-target="#heroBannerCarousel" data-bs-slide-to="4"></button>
+    </div>
+    
+    <div class="carousel-inner">
+        <!-- Banner 1 - Shopping & Deals -->
+        <div class="carousel-item active">
+            <div class="banner-slide" style="background: linear-gradient(135deg, rgba(0,123,255,0.8), rgba(40,167,69,0.8)), url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;">
+                <div class="container">
+                    <div class="row align-items-center min-vh-100 py-5">
+                        <div class="col-lg-6 text-white">
+                            <h1 class="display-3 fw-bold mb-4">
+                                Discover Amazing <span class="text-warning">Deals</span> Near You
+                            </h1>
+                            <p class="lead mb-4">
+                                Get instant access to exclusive in-store discounts and save up to 70% on your favorite brands. Join millions of smart shoppers today!
+                            </p>
+                            <div class="d-flex gap-3 mb-4">
+                                <a href="{{ url_for('pricing') }}" class="btn btn-warning btn-lg px-4">
+                                    <i class="fas fa-crown me-2"></i>Get Premium
+                                </a>
+                                <a href="#deals" class="btn btn-outline-light btn-lg px-4">
+                                    Browse Deals
+                                </a>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="rating-stars text-warning me-3">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <small>Rated 4.9/5 by 10,000+ users</small>
+                            </div>
+                        </div>
                     </div>
-                    <small>Rated 4.9/5 by 10,000+ users</small>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="hero-image text-center">
-                    <img src="https://pixabay.com/get/g626605ecfbe2a16ca782bb706e64cf4b81ac53d7aedb71da20940a781131922a7c8436be28a3b66814667fbffdeeea6d2fe9d39fdb2a2dc811eec63b6daed5d4_1280.jpg" 
-                         alt="Shopping Deals" class="img-fluid rounded-3 shadow-lg">
+        </div>
+        
+        <!-- Banner 2 - Fashion & Lifestyle -->
+        <div class="carousel-item">
+            <div class="banner-slide" style="background: linear-gradient(135deg, rgba(220,53,69,0.8), rgba(253,126,20,0.8)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;">
+                <div class="container">
+                    <div class="row align-items-center min-vh-100 py-5">
+                        <div class="col-lg-6 text-white">
+                            <h1 class="display-3 fw-bold mb-4">
+                                Fashion & <span class="text-warning">Lifestyle</span> Deals
+                            </h1>
+                            <p class="lead mb-4">
+                                Upgrade your wardrobe with exclusive fashion deals. Premium brands at unbeatable prices across Delhi NCR.
+                            </p>
+                            <div class="d-flex gap-3 mb-4">
+                                <a href="#deals" class="btn btn-warning btn-lg px-4">
+                                    <i class="fas fa-shopping-bag me-2"></i>Shop Fashion
+                                </a>
+                                <a href="/vendor" class="btn btn-outline-light btn-lg px-4">
+                                    Partner With Us
+                                </a>
+                            </div>
+                            <div class="banner-features">
+                                <div class="feature-item mb-2">
+                                    <i class="fas fa-check-circle me-2"></i>Up to 70% Off on Top Brands
+                                </div>
+                                <div class="feature-item mb-2">
+                                    <i class="fas fa-check-circle me-2"></i>Exclusive Member-Only Deals
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle me-2"></i>Easy Returns & Exchanges
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Banner 3 - Food & Dining -->
+        <div class="carousel-item">
+            <div class="banner-slide" style="background: linear-gradient(135deg, rgba(255,193,7,0.8), rgba(40,167,69,0.8)), url('https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;">
+                <div class="container">
+                    <div class="row align-items-center min-vh-100 py-5">
+                        <div class="col-lg-6 text-white">
+                            <h1 class="display-3 fw-bold mb-4">
+                                Delicious <span class="text-warning">Food</span> Offers
+                            </h1>
+                            <p class="lead mb-4">
+                                Satisfy your cravings with amazing restaurant deals. From street food to fine dining, discover the best culinary experiences.
+                            </p>
+                            <div class="d-flex gap-3 mb-4">
+                                <a href="#deals" class="btn btn-warning btn-lg px-4">
+                                    <i class="fas fa-utensils me-2"></i>Order Now
+                                </a>
+                                <a href="/pricing" class="btn btn-outline-light btn-lg px-4">
+                                    Premium Menu
+                                </a>
+                            </div>
+                            <div class="banner-features">
+                                <div class="feature-item mb-2">
+                                    <i class="fas fa-motorcycle me-2"></i>Free Home Delivery
+                                </div>
+                                <div class="feature-item mb-2">
+                                    <i class="fas fa-clock me-2"></i>Quick 30-min Service
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-percent me-2"></i>Buy 1 Get 1 Free Offers
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Banner 4 - Electronics & Gadgets -->
+        <div class="carousel-item">
+            <div class="banner-slide" style="background: linear-gradient(135deg, rgba(111,66,193,0.8), rgba(0,123,255,0.8)), url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;">
+                <div class="container">
+                    <div class="row align-items-center min-vh-100 py-5">
+                        <div class="col-lg-6 text-white">
+                            <h1 class="display-3 fw-bold mb-4">
+                                Tech & <span class="text-warning">Electronics</span> Sale
+                            </h1>
+                            <p class="lead mb-4">
+                                Latest smartphones, laptops, and gadgets at incredible prices. EMI options available with zero processing fees.
+                            </p>
+                            <div class="d-flex gap-3 mb-4">
+                                <a href="#deals" class="btn btn-warning btn-lg px-4">
+                                    <i class="fas fa-mobile-alt me-2"></i>Shop Tech
+                                </a>
+                                <a href="/pricing" class="btn btn-outline-light btn-lg px-4">
+                                    Compare Prices
+                                </a>
+                            </div>
+                            <div class="banner-features">
+                                <div class="feature-item mb-2">
+                                    <i class="fas fa-shield-alt me-2"></i>Official Warranty
+                                </div>
+                                <div class="feature-item mb-2">
+                                    <i class="fas fa-credit-card me-2"></i>0% EMI Available
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-truck me-2"></i>Same Day Delivery
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Banner 5 - Health & Beauty -->
+        <div class="carousel-item">
+            <div class="banner-slide" style="background: linear-gradient(135deg, rgba(232,62,140,0.8), rgba(139,69,19,0.8)), url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;">
+                <div class="container">
+                    <div class="row align-items-center min-vh-100 py-5">
+                        <div class="col-lg-6 text-white">
+                            <h1 class="display-3 fw-bold mb-4">
+                                Beauty & <span class="text-warning">Wellness</span> Packages
+                            </h1>
+                            <p class="lead mb-4">
+                                Pamper yourself with exclusive spa and salon deals. Professional beauty treatments at affordable prices.
+                            </p>
+                            <div class="d-flex gap-3 mb-4">
+                                <a href="#deals" class="btn btn-warning btn-lg px-4">
+                                    <i class="fas fa-spa me-2"></i>Book Now
+                                </a>
+                                <a href="/pricing" class="btn btn-outline-light btn-lg px-4">
+                                    View Packages
+                                </a>
+                            </div>
+                            <div class="banner-features">
+                                <div class="feature-item mb-2">
+                                    <i class="fas fa-user-check me-2"></i>Certified Professionals
+                                </div>
+                                <div class="feature-item mb-2">
+                                    <i class="fas fa-calendar-check me-2"></i>Easy Online Booking
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-gift me-2"></i>Complimentary Services
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroBannerCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroBannerCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </section>
 
 <!-- Featured Deals Carousel -->
